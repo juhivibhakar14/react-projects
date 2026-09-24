@@ -7,7 +7,7 @@ import MessageInput from "./MessageInput";
 
 const apiKey = process.env.REACT_APP_STREAM_API_KEY;
 
-const MainChat = () => {
+const MainChatContent = ({ apiKey }) => {
   // 1. Fetch the user dynamically from localStorage
   const savedUserStr = localStorage.getItem("user");
   const savedUser = savedUserStr ? JSON.parse(savedUserStr) : null;
@@ -37,13 +37,13 @@ const MainChat = () => {
   }
 
   return (
-    <Chat client={client}>
-      <div className="flex h-screen w-full bg-slate-950 text-white">
+    <Chat client={client} theme="str-chat__theme-dark">
+      <div className="flex flex-col md:flex-row h-screen w-full bg-slate-950 text-white overflow-hidden">
         
         {/* 2. Sidebar contains the dynamic ChannelList now */}
         <SidebarMain />
 
-        <div className="flex-1 min-h-screen flex flex-col">
+        <div className="flex-1 h-[60vh] md:h-screen flex flex-col min-w-0">
           {/* <Channel> without a prop will automatically show the selected channel from ChannelList */}
           <Channel>
             <Window>
@@ -59,6 +59,20 @@ const MainChat = () => {
       </div>
     </Chat>
   );
+};
+
+const MainChat = () => {
+  if (!apiKey) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-red-500 mb-4">API Key Missing</h2>
+          <p className="text-slate-400">Please add REACT_APP_STREAM_API_KEY to your environment variables.</p>
+        </div>
+      </div>
+    );
+  }
+  return <MainChatContent apiKey={apiKey} />;
 };
 
 export default MainChat;
