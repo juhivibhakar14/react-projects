@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# VYBE - Real-Time Chat Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+VYBE is a modern, responsive, and dynamic real-time chat application built with React, Tailwind CSS, and Stream Chat.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+*   **Real-time Messaging:** Lightning-fast chat infrastructure powered by Stream Chat.
+*   **Dynamic Channel Creation:** Search for users and instantly create new 1-on-1 or group conversations.
+*   **Message Threads:** Reply directly to specific messages using built-in thread support.
+*   **Sleek UI/UX:** Built with Tailwind CSS, featuring beautiful gradients, glassmorphism elements, and a clean dark mode aesthetic.
+*   **User Authentication:** Dynamic auth flow (currently using local storage for demo purposes, allowing easy testing of multiple accounts).
+*   **Responsive Sidebar:** Dynamic channel list that updates automatically when you are added to new conversations.
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*   **Frontend:** React (Create React App), React Router
+*   **Styling:** Tailwind CSS
+*   **Chat Backend/SDK:** [Stream Chat](https://getstream.io/chat/) (`stream-chat`, `stream-chat-react`)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ⚙️ Local Setup & Installation
 
-### `npm test`
+1.  **Clone the repository** (if you haven't already):
+    ```bash
+    git clone https://github.com/yourusername/react-projects.git
+    cd react-projects/chat-application
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-### `npm run build`
+3.  **Environment Variables:**
+    Create a `.env.local` file in the root of the project and add your Stream API key:
+    ```env
+    REACT_APP_STREAM_API_KEY=your_stream_api_key_here
+    ```
+    *(Note: For development, ensure "Disable Auth Checks" is turned ON in your Stream Dashboard so you can use developer tokens).*
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4.  **Run the App:**
+    ```bash
+    npm start
+    ```
+    The application will launch at `http://localhost:3000`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧪 How to Test (Development Mode)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Since the app uses developer tokens and local storage for authentication, you can easily test chatting between two users locally:
 
-### `npm run eject`
+1.  Open the app in your normal browser window and register a new user (e.g., User A).
+2.  Open an **Incognito/Private window** and register a second user (e.g., User B).
+3.  In either window, click the **"+"** button in the sidebar.
+4.  You will see the other user in the list. Click their name to start a new chat.
+5.  Send messages back and forth in real-time!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚀 Deployment (Vercel)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When deploying to Vercel, remember to add `REACT_APP_STREAM_API_KEY` to your Vercel Project's **Environment Variables** settings before deploying.
